@@ -5,13 +5,13 @@
 class Yoke < Formula
   desc "Multi-agent harness: CLI/TUI (yoke) + HTTP API & Web UI server (yoke-server)"
   homepage "https://github.com/blouargant/yoke"
-  version "1.2.2"
+  version "1.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/blouargant/yoke/releases/download/v1.2.2/yoke_1.2.2_Darwin_x86_64.tar.gz"
-      sha256 "ac48934f17955236d5a88259ebb67604c867da9fc032ea4914bee3a3abd5e0d1"
+      url "https://github.com/blouargant/yoke/releases/download/v1.4.0/yoke_1.4.0_Darwin_x86_64.tar.gz"
+      sha256 "7fa04da780ef704862282a1a781bc09e00e567009696d936cfb521e6105da005"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -36,8 +36,8 @@ class Yoke < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/blouargant/yoke/releases/download/v1.2.2/yoke_1.2.2_Darwin_arm64.tar.gz"
-      sha256 "4d4dd51ac30c1d986a88ffdf6d94745669e7fb98aa20429b6921db2703a4647d"
+      url "https://github.com/blouargant/yoke/releases/download/v1.4.0/yoke_1.4.0_Darwin_arm64.tar.gz"
+      sha256 "060fa0e0ffdfe402ded21284cd68d4c489aa2e50b67b99587b4c8514d3e5fa1b"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -65,8 +65,8 @@ class Yoke < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/yoke/releases/download/v1.2.2/yoke_1.2.2_Linux_x86_64.tar.gz"
-      sha256 "0df9063b4d70a71c4fddc3279c5425b38ce8eab076f0396dc2616c63f4654cac"
+      url "https://github.com/blouargant/yoke/releases/download/v1.4.0/yoke_1.4.0_Linux_x86_64.tar.gz"
+      sha256 "40c9ceafc18aefca59ce494f06256e8e06f1a1c5bf251aa7ae8f092a5555f7d5"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so yoke finds the bundled web assets + config without the user
@@ -90,8 +90,8 @@ class Yoke < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/yoke/releases/download/v1.2.2/yoke_1.2.2_Linux_arm64.tar.gz"
-      sha256 "dd7e39d9568a253c3c55574a0b149880dc60e98c4ba32c4b6839db9ae1f67287"
+      url "https://github.com/blouargant/yoke/releases/download/v1.4.0/yoke_1.4.0_Linux_arm64.tar.gz"
+      sha256 "9ecf517fc15a096cb77161a3ac3bb0d24bbb6a78240d75fbeb06560781116d0a"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so yoke finds the bundled web assets + config without the user
