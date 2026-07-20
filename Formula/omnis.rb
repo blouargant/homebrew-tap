@@ -5,13 +5,13 @@
 class Omnis < Formula
   desc "Multi-agent harness: CLI/TUI (omnis) + HTTP API & Web UI server (omnis-server)"
   homepage "https://github.com/blouargant/omnis"
-  version "1.8.0"
+  version "1.8.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/blouargant/omnis/releases/download/v1.8.0/omnis_1.8.0_Darwin_x86_64.tar.gz"
-      sha256 "e1c2649481489db16cd7f6331f3e6d99fcb97771120339b12072a4b1cbe84320"
+      url "https://github.com/blouargant/omnis/releases/download/v1.8.1/omnis_1.8.1_Darwin_x86_64.tar.gz"
+      sha256 "0a2dcc70a67a2f2d0f8ca1c88154d066dcd1e50df256e26a2d0dfdcc57aaf5a1"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -36,8 +36,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/blouargant/omnis/releases/download/v1.8.0/omnis_1.8.0_Darwin_arm64.tar.gz"
-      sha256 "b6f47046cd0f45728d967649cae6e2a89e346b57ac5af1e839b02590e2d305f8"
+      url "https://github.com/blouargant/omnis/releases/download/v1.8.1/omnis_1.8.1_Darwin_arm64.tar.gz"
+      sha256 "80d9962fefcacb7cc82a2dce904fe86f7c22dcca41ac46bf72dfc3ba4527f2ac"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -65,8 +65,8 @@ class Omnis < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v1.8.0/omnis_1.8.0_Linux_x86_64.tar.gz"
-      sha256 "573d33ffa8406250aebff95e02425586b3308ef877bfff8504a843e3eff3d2a0"
+      url "https://github.com/blouargant/omnis/releases/download/v1.8.1/omnis_1.8.1_Linux_x86_64.tar.gz"
+      sha256 "95f7ec034236b1b26d473a6a0aed8e68df12e02a5b2b68e01378b093c7f93dd6"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
@@ -90,8 +90,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v1.8.0/omnis_1.8.0_Linux_arm64.tar.gz"
-      sha256 "b3971c58151f3381a3fa3fc04c97b98b72809914b623dc2450f32f63ccc19a91"
+      url "https://github.com/blouargant/omnis/releases/download/v1.8.1/omnis_1.8.1_Linux_arm64.tar.gz"
+      sha256 "22bfcb6e4e32070ecf7436bc6d527438c5ea59d3fb790d98b25b08ce6370262e"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
