@@ -5,15 +5,15 @@
 class Omnis < Formula
   desc "Multi-agent harness: CLI/TUI (omnis) + HTTP API & Web UI server (omnis-server)"
   homepage "https://github.com/blouargant/omnis"
-  version "1.9.1"
+  version "2.0.0"
   license "MIT"
 
   depends_on "python@3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/blouargant/omnis/releases/download/v1.9.1/omnis_1.9.1_Darwin_x86_64.tar.gz"
-      sha256 "d11a450128713dc1c7ab03bf9fb79c5a62d5b39a4d6d1371a804567e808ba93c"
+      url "https://github.com/blouargant/omnis/releases/download/v2.0.0/omnis_2.0.0_Darwin_x86_64.tar.gz"
+      sha256 "a16c340b3cdfc1b7a70815f1969bf9b37e3697f5479d1b94388135d86114780b"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -32,9 +32,9 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
+        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
-        (pkgshare/"filters").install Dir["config/filters/*.json"]
         # The k8s-validate hook is executable code, not JSON, so it needs its
         # own install line (config/hooks.json itself is already covered by the
         # Dir["config/*.json"] glob above) — and its own chmod, since a source
@@ -44,8 +44,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/blouargant/omnis/releases/download/v1.9.1/omnis_1.9.1_Darwin_arm64.tar.gz"
-      sha256 "0e9b0d3abaf1312333d2c330e1d63ef7ec1464d598d9d37b797837579ec3f4eb"
+      url "https://github.com/blouargant/omnis/releases/download/v2.0.0/omnis_2.0.0_Darwin_arm64.tar.gz"
+      sha256 "e9fe1e64f4e86c7c2152d5b2357838d3cea530817c6ca3c894622701fcebb1b7"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -64,9 +64,9 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
+        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
-        (pkgshare/"filters").install Dir["config/filters/*.json"]
         # The k8s-validate hook is executable code, not JSON, so it needs its
         # own install line (config/hooks.json itself is already covered by the
         # Dir["config/*.json"] glob above) — and its own chmod, since a source
@@ -79,8 +79,8 @@ class Omnis < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v1.9.1/omnis_1.9.1_Linux_x86_64.tar.gz"
-      sha256 "3d7eea3515fc91e2b2c785ffc5e56af0731b6a6818619b2eee72b0afafac54e9"
+      url "https://github.com/blouargant/omnis/releases/download/v2.0.0/omnis_2.0.0_Linux_x86_64.tar.gz"
+      sha256 "61276610716d58a0a3d360b873ffa7402bff9e76cf2a826d2a872bf3690f87e9"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
@@ -98,9 +98,9 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
+        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
-        (pkgshare/"filters").install Dir["config/filters/*.json"]
         # The k8s-validate hook is executable code, not JSON, so it needs its
         # own install line (config/hooks.json itself is already covered by the
         # Dir["config/*.json"] glob above) — and its own chmod, since a source
@@ -110,8 +110,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v1.9.1/omnis_1.9.1_Linux_arm64.tar.gz"
-      sha256 "75177f184b247abe26b66488ac233fc806dc641cdd5a6702b245b929b4be276d"
+      url "https://github.com/blouargant/omnis/releases/download/v2.0.0/omnis_2.0.0_Linux_arm64.tar.gz"
+      sha256 "9f8fdcbcf0d296fe683810dac5ff13b74c655435862a7815835142a79c7aec99"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
@@ -129,9 +129,9 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
+        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
-        (pkgshare/"filters").install Dir["config/filters/*.json"]
         # The k8s-validate hook is executable code, not JSON, so it needs its
         # own install line (config/hooks.json itself is already covered by the
         # Dir["config/*.json"] glob above) — and its own chmod, since a source
