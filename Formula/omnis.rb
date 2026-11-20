@@ -5,15 +5,15 @@
 class Omnis < Formula
   desc "Multi-agent harness: CLI/TUI (omnis) + HTTP API & Web UI server (omnis-server)"
   homepage "https://github.com/blouargant/omnis"
-  version "2.1.0"
+  version "2.2.0"
   license "MIT"
 
   depends_on "python@3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/blouargant/omnis/releases/download/v2.1.0/omnis_2.1.0_Darwin_x86_64.tar.gz"
-      sha256 "2d1f2b678af4533953face4e7c70ba136dee05439ef0496c1dc2676869718af3"
+      url "https://github.com/blouargant/omnis/releases/download/v2.2.0/omnis_2.2.0_Darwin_x86_64.tar.gz"
+      sha256 "bfd20a07dbcdddcf168fbb609c9a2bd3bc4b22f0fdd69d1cb9a8dea604ff095a"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -32,7 +32,6 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
-        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
         # The k8s-validate hook is executable code, not JSON, so it needs its
@@ -44,8 +43,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/blouargant/omnis/releases/download/v2.1.0/omnis_2.1.0_Darwin_arm64.tar.gz"
-      sha256 "fe1f669a7ddd404d7ca2a800f5aa23cd7cfa95aa150d8c13d8e451937c4b469e"
+      url "https://github.com/blouargant/omnis/releases/download/v2.2.0/omnis_2.2.0_Darwin_arm64.tar.gz"
+      sha256 "50ad03b3f6f5814e682cc7def371e4242f86a66f0c599e046f67d830c40809e3"
 
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
@@ -64,7 +63,6 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
-        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
         # The k8s-validate hook is executable code, not JSON, so it needs its
@@ -79,8 +77,8 @@ class Omnis < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v2.1.0/omnis_2.1.0_Linux_x86_64.tar.gz"
-      sha256 "018438f94d2217e53a5d938e25799bbb86c23974c72c7beb7a81df49980e02e5"
+      url "https://github.com/blouargant/omnis/releases/download/v2.2.0/omnis_2.2.0_Linux_x86_64.tar.gz"
+      sha256 "47db6df106c9f0f84672b73b67ef84b8bc831f4d4e47bebe86c866288733f9ef"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
@@ -98,7 +96,6 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
-        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
         # The k8s-validate hook is executable code, not JSON, so it needs its
@@ -110,8 +107,8 @@ class Omnis < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/blouargant/omnis/releases/download/v2.1.0/omnis_2.1.0_Linux_arm64.tar.gz"
-      sha256 "16d63c3432e3780e4cfe2a5ca37ff7a87d1422e33b268d6a31b3f4f60997d852"
+      url "https://github.com/blouargant/omnis/releases/download/v2.2.0/omnis_2.2.0_Linux_arm64.tar.gz"
+      sha256 "e046e386805a8d49f9d70e5fa23439b06834f7289917e5553cb88707821888bb"
       define_method(:install) do
         # Keep the real binaries in libexec; expose env-injecting wrappers on
         # PATH so omnis finds the bundled web assets + config without the user
@@ -129,7 +126,6 @@ class Omnis < Formula
         # live in ~/.omnis (higher precedence) so upgrades never clobber them.
         pkgshare.install "web"
         pkgshare.install "registry"
-        pkgshare.install "softskills"
         pkgshare.install Dir["config/*.json"]
         pkgshare.install "config/server.yaml"
         # The k8s-validate hook is executable code, not JSON, so it needs its
